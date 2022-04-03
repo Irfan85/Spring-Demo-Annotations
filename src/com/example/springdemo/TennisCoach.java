@@ -2,8 +2,9 @@ package com.example.springdemo;
 
 import org.springframework.stereotype.Component;
 
-// Spring will use this annotation to identify beans. Here, we have to provide the bean id
-@Component("myTennisCoach")
+// If we don't provide an explicit bean ID, Spring will give it a default a bean id which is the same as the class name but
+// starts with a lower case letter. For this particular class, it will be "tennisCoach"
+@Component
 public class TennisCoach implements Coach {
 
 	@Override
