@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 // starts with a lower case letter. For this particular class, it will be "tennisCoach"
 @Component
 public class TennisCoach implements Coach {
-
+	
+	// Here, we're using field injection where Spring can inject dependencies directly into their respective fields using
+	// a java technology called "reflection"
+	@Autowired
 	public FortuneService fortuneService;
 	
 	public TennisCoach() {
@@ -20,13 +23,11 @@ public class TennisCoach implements Coach {
 //		this.fortuneService = fortuneService;
 //	}
 	
-	// We actually don't need setter methods for injecting dependencies. We can add the "Autowired" annotation to any method
-	// and that method will be used to inject dependencies
-	@Autowired
-	public void foo(FortuneService fortuneService) {
-		System.out.println("TennisCoach: Inside the foo method");
-		this.fortuneService = fortuneService;
-	}
+//	@Autowired
+//	public void foo(FortuneService fortuneService) {
+//		System.out.println("TennisCoach: Inside the foo method");
+//		this.fortuneService = fortuneService;
+//	}
 	
 	@Override
 	public String getDailyWorkout() {
