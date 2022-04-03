@@ -20,11 +20,11 @@ public class TennisCoach implements Coach {
 //		this.fortuneService = fortuneService;
 //	}
 	
-	// Here, "Autowired" annotation tells Spring object factory to search for components/classes that matches with the dependency in the
-	// argument of the setter method
+	// We actually don't need setter methods for injecting dependencies. We can add the "Autowired" annotation to any method
+	// and that method will be used to inject dependencies
 	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
-		System.out.println("TennisCoach: Inside the setFortuneService method");
+	public void foo(FortuneService fortuneService) {
+		System.out.println("TennisCoach: Inside the foo method");
 		this.fortuneService = fortuneService;
 	}
 	
