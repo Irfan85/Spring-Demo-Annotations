@@ -10,13 +10,24 @@ public class TennisCoach implements Coach {
 
 	public FortuneService fortuneService;
 	
-	// "Autowired" annotation tells Spring object factory to search for components/classes that matches with the dependency in the
-	// constructor and inject it.
+	public TennisCoach() {
+		System.out.println("TennisCoach: inside the no-arg constructor");
+	}
+	
+	
+//	@Autowired
+//	public TennisCoach(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
+	
+	// Here, "Autowired" annotation tells Spring object factory to search for components/classes that matches with the dependency in the
+	// argument of the setter method
 	@Autowired
-	public TennisCoach(FortuneService fortuneService) {
+	public void setFortuneService(FortuneService fortuneService) {
+		System.out.println("TennisCoach: Inside the setFortuneService method");
 		this.fortuneService = fortuneService;
 	}
-
+	
 	@Override
 	public String getDailyWorkout() {
 		return "Practice your backhand volley.";
