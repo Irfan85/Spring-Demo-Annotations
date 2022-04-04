@@ -24,7 +24,6 @@ public class TennisCoach implements Coach {
 		System.out.println("TennisCoach: inside the no-arg constructor");
 	}
 	
-	
 //	@Autowired
 //	public TennisCoach(FortuneService fortuneService) {
 //		this.fortuneService = fortuneService;
