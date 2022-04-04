@@ -1,6 +1,7 @@
 package com.example.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // If we don't provide an explicit bean ID, Spring will give it a default a bean id which is the same as the class name but
@@ -11,6 +12,9 @@ public class TennisCoach implements Coach {
 	// Here, we're using field injection where Spring can inject dependencies directly into their respective fields using
 	// a java technology called "reflection"
 	@Autowired
+	// If we have multiple matching candidates, we have to qualify the dependency. Here, we have to pass a bean ID for which, we can
+	// just use the default bean ID that Spring auto generates (Class name that starts with lowercase letter)
+	@Qualifier("randomFortuneService")
 	public FortuneService fortuneService;
 	
 	public TennisCoach() {
