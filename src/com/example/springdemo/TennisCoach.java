@@ -14,7 +14,7 @@ public class TennisCoach implements Coach {
 	@Autowired
 	// If we have multiple matching candidates, we have to qualify the dependency. Here, we have to pass a bean ID for which, we can
 	// just use the default bean ID that Spring auto generates (Class name that starts with lowercase letter)
-	@Qualifier("randomFortuneService")
+	@Qualifier("databaseFortuneService")
 	public FortuneService fortuneService;
 	
 	public TennisCoach() {
