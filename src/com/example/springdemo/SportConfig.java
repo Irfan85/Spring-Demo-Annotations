@@ -1,5 +1,6 @@
 package com.example.springdemo;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,5 +10,18 @@ import org.springframework.context.annotation.Configuration;
 // it to a package to get bean info by itself.
 @ComponentScan("com.example.springdemo")
 public class SportConfig {
-
+	// Here we're manually adding a bean definition
+	
+	// Defining the FortuneService bean. Here, the method name will act as the bean ID.
+	@Bean
+	public FortuneService cautionFortuneService() {
+		return new CautionFortuneService();
+	}
+	
+	// Defining the Coach bean and injecting dependencies
+	@Bean
+	public Coach swimCoach() {
+		return new SwimCoach(cautionFortuneService());
+	}
+	
 }
