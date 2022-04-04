@@ -2,11 +2,14 @@ package com.example.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 // If we don't provide an explicit bean ID, Spring will give it a default a bean id which is the same as the class name but
 // starts with a lower case letter. For this particular class, it will be "tennisCoach"
 @Component
+// This annotation defines the bean scope
+@Scope("prototype")
 public class TennisCoach implements Coach {
 	
 	// Here, we're using field injection where Spring can inject dependencies directly into their respective fields using
